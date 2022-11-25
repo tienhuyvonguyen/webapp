@@ -28,6 +28,6 @@
     - Update profile
 
 * Under development
- - Using ORM instead of raw query
- - Using validation framework like HTMLPurifier & validator
- - Recontruct to MVC pattern
+*   - Using ORM instead of raw query
+*   - Using validation framework like HTMLPurifier & validator
+*   - Recontruct to MVC pattern
