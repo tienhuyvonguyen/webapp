@@ -29,5 +29,5 @@
 
 * Under development
    - Using ORM instead of raw query
-   - Using validation framework like HTMLPurifier & validator
+   - Using validation framework: HTMLPurifier & validator,...
    - Recontruct to MVC pattern
