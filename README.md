@@ -1,6 +1,6 @@
 # sampleWebapp project 
 
-* Visit website at https://huyvo.tech hosted on Google Cloud Platform & Cloudflare proxy, pending cloudflare WAF
+* Visit website at https://huyvo.tech hosted on Google Cloud Platform & Cloudflare proxy, pending cloudflare WAF ( please be patient, routing may take some time )
 * Synk security for vuln and code quality check
 * SSL cerrtificate for https connection provided by zeroSSL & report at: https://www.ssllabs.com/ssltest/analyze.html?d=huyvo.tech&s=35.240.219.228
 * Config apache server with SSL certificate
