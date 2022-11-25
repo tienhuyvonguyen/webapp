@@ -11,7 +11,7 @@
     - Command to stop the project: docker compose down
     - Access the project at: 
         + for wabsite: https://localhost:8080
-        + for phpmyadmin: https://localhost:8443/phpmyadmin
+        + for phpmyadmin: https://localhost:5000
             - root-username: root
             - root-password: secret
             - user-username: user
