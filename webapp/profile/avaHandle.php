@@ -17,50 +17,52 @@ if (isset($_POST["submit"])) {
     // $userUniq = md5($login_session); // md5 hash of the username to create a unique folder for each user
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION)); // bypass possible
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"], $imageFileType); // check image
+
+    //explode the file name to get the extension
+    $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    $whiteList = array('jpg', 'png', 'jpeg', 'gif'); // list of allowed file extensions
+    if (!in_array($fileType, $whiteList)) {
+        echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed!');window.location.href='userProfile.php';</script>";
+        $uploadOk = 0;
+    }
+
+    // Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"], $fileType); // check image
     if ($check !== false) {
         $uploadOk = 1;
     } else {
         echo "<script>alert('File is not an image!');window.location.href='userProfile.php';</script>";
         $uploadOk = 0;
-        die();
     }
+
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 500000) { // 500kb
-        echo "<script>alert('Sorry, your Avatar is too large.')</script>";
+        echo "<script>alert('Sorry, your file is too large!');window.location.href='userProfile.php';</script>";
         $uploadOk = 0;
-        die();
     }
-    $whiteList = array('png', 'jpg', 'jpeg', 'gif'); // whitelist of file types
-    if (!in_array($imageFileType, $whiteList)) {
-        echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.')</script>";
-        $uploadOk = 0;
-        die();
-    }
+
+    // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        die();
+        echo "<script>alert('Sorry, your file was not uploaded!');window.location.href='userProfile.php';</script>";
+        // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+            if ($oldAvatar == $target_file) {
+                echo "<script>alert('You have already uploaded this file!');window.location.href='userProfile.php';</script>";
+            } else {
+                try {
+                    $sql = "update users set avatar = :avatar where username = :username";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bindParam(':avatar', $target_file);
+                    $stmt->bindParam(':username', $login_session);
+                    $stmt->execute();
+                    echo "<script>alert('Update avatar successful!');window.location.href='userProfile.php';</script>";
+                } catch (PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                }
+            }
         } else {
-            echo "<script>alert('Sorry, there was an error uploading your file.'); window.location.href='userProfile.php';</script>";
-            die();
+            echo "<script>alert('Sorry, there was an error uploading your file!');window.location.href='userProfile.php';</script>";
         }
-    }
-    $newAvatar = $target_file;
-    if ($newAvatar == $oldAvatar) {
-        $newAvatar = $oldAvatar;
-    }
-    try {
-        $sql = "UPDATE users SET avatar = :avatar WHERE username = :username ";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':avatar', $newAvatar);
-        $stmt->bindParam(':username', $login_session);
-        $stmt->execute();
-        echo "<script>alert('Avatar updated successfully');window.location.href='userProfile.php';</script>";
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
     }
 }
