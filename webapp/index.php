@@ -43,10 +43,7 @@ https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrit
 	</script>
 </body>
 <footer>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<center>
-		<h6 style="color: white;">© 2020-2021, All Rights Reserved</h6>
-	</center>
+	<!-- display page credit at the bottom of the page -->
 	<div class="card-footer">
 		<div class="row">
 			<div class="col">
