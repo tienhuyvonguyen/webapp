@@ -29,5 +29,6 @@
 
 * Under development
    - Using ORM instead of raw query
+   - Admin Panel
    - Using validation framework: HTMLPurifier & validator,...
    - Recontruct to MVC pattern
