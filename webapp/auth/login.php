@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Home
             </a>
             <!-- forgot password -->
-            <a href="forgotPassword.php" class="btn btn-primary">
+            <a href="forgotPassword.php" class="btn btn-primary disabled">
                 Forgot Password
             </a>
         </form>
