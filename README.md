@@ -1,4 +1,4 @@
-# sampleWebapp project 
+# simpleWebapp project 
 
 * Visit website at https://huyvo.tech hosted on Google Cloud Platform & Cloudflare proxy, pending cloudflare WAF ( please be patient, routing may take some time )
 * Synk, Solatint security for vuln and code quality check
