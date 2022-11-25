@@ -17,17 +17,17 @@
             - user-username: user
             - user-password: user
 
-* Funtions *
-- Login
-- Register
-- Top up balance
-- Place order
-- Upgrade account to VIP
-- Vip account can place order with discount
-- Online payment 
-- Update profile
+* Funtions 
+    - Login
+    - Register
+    - Top up balance
+    - Place order
+    - Upgrade account to VIP
+    - Vip account can place order with discount
+    - Online payment 
+    - Update profile
 
-** Under development
-    - Using ORM instead of raw query
-    - Using validation framework like HTMLPurifier & validator
-    - Recontruct to MVC pattern
+* Under development
+ - Using ORM instead of raw query
+ - Using validation framework like HTMLPurifier & validator
+ - Recontruct to MVC pattern
