@@ -109,16 +109,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </thead>
                     <tbody>
                         <?php
+                        $cartTotal = 0;
                         if (!empty($cart)) {
                             foreach ($cart as $item) {
-                                $cartTotal = 0;
+                                $cartTotal += $item['item_price'] * $item['item_quantity'];
                                 echo "<tr>";
                                 echo "<td>" . $item['item_name'] . "</td>";
                                 echo "<td>" . number_format($item['item_price'], 2) . "</td>";
                                 echo "<td>" . $item['item_quantity'] . "</td>";
                                 echo "<td>" . number_format(($item['item_price'] * $item['item_quantity']), 2) . "</td>";
                                 echo "</tr>";
-                                $cartTotal += $item['item_price'] * $item['item_quantity'];
                             }
                         }
                         ?>
