@@ -25,7 +25,7 @@ session_start();
     </center>
     <div class="container">
         <a href="./main.php" class="btn btn-primary float-left ">Main menu</a>
-        <a href="../auth/logout.php" class="btn btn-primary float-lg-right ">Logout</a>
+        <a href="../auth/logout.php" class="btn btn-primary float-lg-right bg-danger">Logout</a>
     </div>
     <br>
     <br>

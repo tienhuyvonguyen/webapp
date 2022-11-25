@@ -1,7 +1,6 @@
 <?php
 include '../auth/session.php';
-
-// logic conflict
+session_start();
 // save the cart to the session
 if (isset($_POST["add_to_cart"])) {
     $stock = $_POST["hidden_stock"];
@@ -15,7 +14,8 @@ if (isset($_POST["add_to_cart"])) {
     } else {
         if (isset($_SESSION["shopping_cart"])) { // if the cart is not empty
             $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-            if (!in_array($_GET["id"], $item_array_id)) { // if the item is not in the cart
+            // if the item is not in the cart
+            if (!in_array($_GET["id"], $item_array_id)) {
                 $count = count($_SESSION["shopping_cart"]);
                 $item_array = array(
                     'item_id' => $_GET["id"],
@@ -24,10 +24,9 @@ if (isset($_POST["add_to_cart"])) {
                     'item_quantity' => $_POST["quantity"],
                     'item_picture' => $_POST["hidden_picture"]
                 );
-                $_SESSION["shopping_cart"][$count] = $item_array;
-                echo "<script>alert('Item Added to Cart')</script>";
-                echo "<script>window.location='../services/main.php'</script>";
-            } else { // if the item is already in the cart
+                $_SESSION["shopping_cart"][$count + 1] = $item_array;
+                echo "<script>alert('Item added to cart!'); window.location.href = './main.php';</script>";
+            } else { // if the item is already in the cart 
                 // update the quantity of the item in the cart to the new quantity (add the new quantity to the old quantity)
                 foreach ($_SESSION["shopping_cart"] as $keys => $values) {
                     if ($values["item_id"] == $_GET["id"]) {

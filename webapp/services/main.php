@@ -51,7 +51,7 @@ try {
   <div class="container">
     <div class="row">
       <div class="col">
-        <a href="../auth/logout.php" class="btn btn-primary float-lg-left ">Logout</a>
+        <a href="../auth/logout.php" class="btn btn-primary float-lg-left bg-danger" >Logout</a>
         <a href="./checkout.php" class="btn btn-primary float-lg-right ">Checkout</a>
       </div>
     </div>
