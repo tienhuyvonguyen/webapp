@@ -31,4 +31,5 @@
    - Using ORM instead of raw query
    - Admin Panel
    - Using validation framework: HTMLPurifier & validator,...
+   - Unit Test
    - Recontruct to MVC pattern
