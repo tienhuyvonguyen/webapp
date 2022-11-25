@@ -7,7 +7,7 @@
 * Config apache redirect http to https and www to non-www
 * Dockerize project
     - Command to compose the project: docker compose up
-    NOTE: Please wait 1 minute
+    NOTE: Please wait 3 minutes
     - Command to stop the project: docker compose down
     - Access the project at: 
         + for wabsite: https://localhost:8080
