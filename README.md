@@ -10,8 +10,8 @@
     NOTE: Please wait 3 minutes
     - Command to stop the project: docker compose down
     - Access the project at: 
-        + for wabsite: https://localhost:8080
-        + for phpmyadmin: https://localhost:5000
+        + for wabsite: http://localhost:8080
+        + for phpmyadmin: http://localhost:5000
             - root-username: root
             - root-password: secret
             - user-username: user
