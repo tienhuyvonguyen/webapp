@@ -22,8 +22,10 @@ try {
 }
 $cart = $_SESSION['shopping_cart'];
 $cartTotal = 0;
-foreach ($cart as $key => $value) {
-    $cartTotal += $value['item_price'];
+if ($cart != null && $cart != "") {
+    foreach ($cart as $key => $value) {
+        $cartTotal += $value['item_price'] * $value['item_quantity'];
+    }
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //update user balance
