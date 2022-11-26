@@ -8,9 +8,11 @@
 * Dockerize project
     - Command to compose the project: docker compose up
     NOTE: Please wait 3 minutes
-    - Command to stop the project: docker compose down
+    - Command to stop the project: docker compose down or Ctrl + C
     - Access the project at: 
         + for wabsite: http://localhost:8080
+            -test account: valen
+            -test password: valen123
         + for phpmyadmin: http://localhost:5000
             - root-username: root
             - root-password: secret
@@ -30,6 +32,6 @@
 * Under development
    - Using ORM instead of raw query
    - Admin Panel
-   - Using validation framework: HTMLPurifier & validator,...
+   - Using validation framework: HTMLPurifier & PHP validator,...
    - Unit Test
    - Recontruct to MVC pattern
