@@ -35,3 +35,5 @@
    - Using validation framework: HTMLPurifier & PHP validator,...
    - Unit Test
    - Recontruct to MVC pattern
+* Fixing
+   - Secret information exposed in code

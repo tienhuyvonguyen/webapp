@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptcha = $_POST['g-recaptcha-response'];
     // Put secret key here, which we get
     // from google console
-    $secret_key = '6LcxVSsjAAAAAGs-Ggs2uLLqk9ZCNK-P9fxfJmvY';
+    $secret_key = $_SERVER['RECAPTCHA_SECRET_KEY'];
 
     // Hitting request to the URL, Google will
     // respond with success or error scenario
@@ -147,8 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                                                                                         } ?>">
             </div>
             <!-- captcha -->
-                <div class="g-recaptcha" data-sitekey="6LcxVSsjAAAAAEDBn2g4J81XrX6lJxV_A-bL7HU_">
-                </div>
+            <div class="g-recaptcha" data-sitekey="6LcxVSsjAAAAAEDBn2g4J81XrX6lJxV_A-bL7HU_">
+            </div>
             <br>
             <!-- captcha -->
 
