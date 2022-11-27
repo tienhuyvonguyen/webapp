@@ -1,11 +1,11 @@
 <?php
 ini_set("display_errors", "0");
+include '../db/dbConnect.php'; // Database connection
 $showAlert = false;
 $showError = false;
 $exists = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include '../db/dbConnect.php'; // Database connection
     $username = strtoupper($_POST['username']);
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
@@ -23,14 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($num == 0) {
         // deepcode ignore PhpSameEvalBinaryExpressiontrue: Accepted
         if (($password == $cpassword) && $exists == false) {
-
-            $hash = password_hash(
-                $password,
-                PASSWORD_DEFAULT
-            );
-
+            $hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO `users` ( `username`,
-				`userPassword`, `userEmail`) VALUES (:username, :password, :email)";
+            	`userPassword`, `userEmail`) VALUES (:username, :password, :email)";
             try {
                 $result = $conn->prepare($sql);
                 $result->bindParam(':username', $username, PDO::PARAM_STR);

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = $_SERVER['DB_HOST'];
 $user = $_SERVER['DB_USER'];
 $pass = $_SERVER['DB_PASS'];
