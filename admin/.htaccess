@@ -6,6 +6,6 @@ DirectoryIndex index.php
     SetEnv RECAPTCHA_SECRET_KEY 6LcxVSsjAAAAAGs-Ggs2uLLqk9ZCNK-P9fxfJmvY
     SetEnv DB_HOST mysql-server
     SetEnv DB_NAME webapp
-    SetEnv DB_USER user
-    SetEnv DB_PASS user
+    SetEnv DB_USER root
+    SetEnv DB_PASS secret
 </IfModule>

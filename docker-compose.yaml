@@ -7,8 +7,12 @@ services:
     restart: always
     volumes:
       - "./webapp/:/var/www/html/"
+      - "./admin/:/var/www/admin/"
+      - "./dockerConfig/admin.conf:/etc/apache2/sites-available/admin.conf"
+      - "./dockerConfig/config.sh:/root/config.sh"
     ports:
       - "8080:80"
+      - "9090:9090"
       
   mysql-server:
     image: mysql:8.0.19
